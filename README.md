@@ -1,0 +1,1 @@
+This is a project to practice git workflow in a linux environment and web design.The objective is to build a copy of the google homepage.
