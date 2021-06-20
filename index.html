@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+    
+        html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+        body{
+            display: grid;
+            grid-template-rows: 1fr 10fr 1fr;
+            grid-template-areas: "hder" "main" "fter";
+            height: 100vh;
+            width: 10vw;
+            font-family: Poppins;
+        }
+
+        main {
+            
+            display: flex;
+            justify-content: center;
+            grid-area: main;
+        }
+        
+        #search_form{
+            height: auto;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0px;
+        }
+
+        #search{
+            height: 3.8em;
+            border-color:rgb(199, 202, 204);
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 30px;
+            width: 45vw;
+            min-width: 400px;
+            position: relative;
+            text-indent: 3.5em;
+            background-image: url("googlesearchicon.png");
+            background-repeat:no-repeat;
+            background-size: 20px;
+            background-position-x: 15px;
+            background-position-y: 12px;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        #search:focus{
+            outline: none;
+        }
+
+        #search:hover{
+            box-shadow: 0px 3px 8px 1px rgb(211, 210, 210);
+        }
+
+        button{
+            margin-top: 40px;
+            display: inline-block;
+            text-decoration: none;
+            height: 3em;
+            width: 12em;
+            border: none;
+            background-color: #f8fafa;
+            padding: 3px;
+            border: solid 3px transparent;
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        button:hover{
+            box-shadow: 0px 0px 1px 1px #d1cfcf;   
+        }
+
+        #head_bar
+        {
+            height: 100px;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            display: flex;
+            transform: translate(-10px, -10px);
+            /*background-color: red;*/
+        }
+
+        #nav_bar
+        {
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            grid-template-areas: "lhs . rhs";
+            height: 50px;
+            width: 100vw;
+            top: 0px;
+            left: 0px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        nav > .select
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        #lhsHeader
+        {
+            grid-area: lhs;
+        }
+
+        #lhsHeader > li
+        {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+        
+        #rhsHeader
+        {
+            grid-area: rhs;
+        }
+
+        #rhsHeader > li
+        {
+            margin-left: 10px;
+        }
+        
+        ul{
+            list-style: none;
+        }
+       
+        #app_icon
+        {
+            margin-top: 5px;
+            transform: scale(0.5);
+            opacity: 0.6;
+        }
+
+        #prof_pic
+        {
+            border-style: none;
+            border-radius: 100%;
+        }
+
+        header{
+            grid-area: hder;
+        }
+
+        footer{
+            grid-area: fter;
+            width: 100vw;
+            display: flex; 
+        }
+
+        #f_nav{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 30vw 40vw 30vw;
+            grid-template-areas: "first3 spec1 last3";
+            background-color:#F4F4F4;
+            opacity: 0.8;
+        }
+
+        #g_leaf{
+            margin-left: 5px;
+            margin-right: 5px;
+            transform: scale(0.7) translateY(9px) ;
+        }
+
+        #f_nav > ul > li{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #first3{
+            grid-area: first3;
+        }
+
+        #spec1{
+            grid-area: spec1;
+        }
+
+        #last3{
+            grid-area: last3;
+        }
+        
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        @media (max-width: 1060px)
+        {
+            #f_nav{
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 55vw 45vw;
+                grid-template-areas: "spec1 spec1" "first3 last3";
+                background-color:#F4F4F4;
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 580px)
+        {
+            #f_nav{
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                grid-template-areas: "spec1" "first3" "last3";
+                justify-content: center;
+                background-color:#F4F4F4;
+                opacity: 0.8;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <header id="head_bar">
+        <nav id="nav_bar">
+            <ul id="lhsHeader" class="select">
+                <li class="list_el">
+                    <a class="headBut">About</a>
+                </li class="list_el">
+                <li class="list_el">
+                    <a class="headBut">Store</a>
+                </li>
+            </ul>
+            <ul id="rhsHeader" class="select">
+                <li class="list_el">
+                    <a class="headBut">Gmail</a>
+                </li>
+                <li class="list_el">
+                    <a class="headBut">Images</a>
+                </li>
+                <li class="list_el">
+                    <a id="icon_anchor" href=""><img id="app_icon" src="googleappicon.png"></a>
+                </li>
+                <li class="list_el">
+                    <a href=""><img id="prof_pic" src="profpic.png"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="search_form">
+            <div>
+            <img id="google_logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+            </div>
+            <form id="search_bar">
+                <input id="search" type="search" placeholder="">
+            </form>
+            <div id="buttons">
+                <button class="button" type="button" id="b1">Google Search</button>
+                <button class="button" type="button" id="b2">I'm Feeling Lucky</button>
+            </div>
+        </div>
+    </main>
+    <footer id="foot_bar">
+        <nav id="f_nav">
+            <ul id="first3" class="select">
+                <li><a href="">Advertising</a></li>
+                <li><a href="">Business</a></li>
+                <li><a href="">How Search Works</a></li>
+            </ul>   
+            <ul id="spec1" class="select">
+                <li><a href><img id="g_leaf" src="googleleaf.png">Carbon neutral since 2007</a></li>
+            </ul>
+            <ul id="last3" class="select">
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Terms</a></li>
+                <li><a href="">Settings</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<html>
